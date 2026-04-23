@@ -211,6 +211,9 @@ const Home = (props) => {
                   </span>
                 </div>
               </div>
+              <p className="gallery-description">
+                Clean, straight-line curbing framing a backyard patio.
+              </p>
             </div>
             <div className="gallery-card">
               <div className="gallery-item">
@@ -225,6 +228,9 @@ const Home = (props) => {
                   </span>
                 </div>
               </div>
+              <p className="gallery-description">
+                Curved planter cutouts running along a block wall.
+              </p>
             </div>
             <div className="gallery-card">
               <div className="gallery-item">
@@ -239,6 +245,9 @@ const Home = (props) => {
                   </span>
                 </div>
               </div>
+              <p className="gallery-description">
+                Sharp driveway border with desert plant accents.
+              </p>
             </div>
             <div className="gallery-card">
               <div className="gallery-item">
@@ -253,6 +262,9 @@ const Home = (props) => {
                   </span>
                 </div>
               </div>
+              <p className="gallery-description">
+                Flowing curve dividing lawn from landscape bed.
+              </p>
             </div>
             <div className="gallery-card">
               <div className="gallery-item">
@@ -267,6 +279,9 @@ const Home = (props) => {
                   </span>
                 </div>
               </div>
+              <p className="gallery-description">
+                Long, continuous edge along a desert-landscaped yard.
+              </p>
             </div>
           </div>
           <div className="gallery-footer">
