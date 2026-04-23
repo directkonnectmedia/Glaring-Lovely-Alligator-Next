@@ -1468,7 +1468,7 @@
 
 .gallery-card {
   position: relative;
-  flex: 0 0 calc((100% - var(--spacing-3xl) * 2) / 3);
+  flex: 0 0 calc((100% - var(--spacing-3xl)) / 2);
   scroll-snap-align: start;
   padding-right: 16px;
   padding-bottom: 16px;
@@ -1497,10 +1497,11 @@
   margin-top: var(--spacing-xl);
   padding: 0 2px;
   color: var(--color-on-surface);
-  font-size: var(--font-size-base);
-  font-family: var(--font-family-body);
-  font-weight: var(--font-weight-body);
-  line-height: var(--line-height-body);
+  font-size: var(--font-size-lg);
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading);
+  font-style: var(--font-style-subheading);
+  line-height: var(--line-height-heading);
   letter-spacing: var(--letter-spacing-body);
   position: relative;
   z-index: 1;
