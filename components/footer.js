@@ -12,7 +12,11 @@ const Footer = (props) => {
             <div className="footer-grid">
               <div className="footer-brand footer-column">
                 <div className="footer-logo-wrapper">
-                  <span className="footer-logo-text">ForgePour</span>
+                  <img
+                    src="/logo.png"
+                    alt="Custom Concrete Curbing Logo"
+                    style={{ height: '72px', width: 'auto' }}
+                  />
                 </div>
                 <p className="footer-description">
                   Arizona&apos;s premier choice for residential and commercial

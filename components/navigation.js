@@ -13,12 +13,11 @@ const Navigation = (props) => {
             <Link href="/">
               <a>
                 <div className="navigation-logo">
-                  <div className="navigation-thq-navigation-logo-icon-elm1 navigation-logo-icon">
-                    &lt;img src=&quot;logo-custom-concrete-curbing.jpg&quot;
-                    alt=&quot;Custom Concrete Curbing Logo&quot;
-                    style=&quot;height: 40px; width: auto;&quot; /&gt;
-                  </div>
-                  <span className="section-title">ForgePour</span>
+                  <img
+                    src="/logo.png"
+                    alt="Custom Concrete Curbing Logo"
+                    style={{ height: '48px', width: 'auto' }}
+                  />
                 </div>
               </a>
             </Link>
@@ -91,7 +90,7 @@ const Navigation = (props) => {
               </a>
             </div>
             <div className="navigation-actions">
-              <a href="tel:1234567890">
+              <a href="tel:6026959923">
                 <div className="navigation-phone">
                   <svg
                     width="24"
@@ -108,7 +107,7 @@ const Navigation = (props) => {
                       strokeLinejoin="round"
                     ></path>
                   </svg>
-                  <span className="navigation-phone-text">(123) 456-7890</span>
+                  <span className="navigation-phone-text">(602) 695-9923</span>
                 </div>
               </a>
               <a href="#quote">
@@ -145,12 +144,11 @@ const Navigation = (props) => {
             <Link href="/">
               <a>
                 <div className="navigation-logo">
-                  <div className="navigation-thq-navigation-logo-icon-elm2 navigation-logo-icon">
-                    &lt;img src=&quot;logo-custom-concrete-curbing.jpg&quot;
-                    alt=&quot;Custom Concrete Curbing Logo&quot;
-                    style=&quot;height: 40px; width: auto;&quot; /&gt;
-                  </div>
-                  <span className="section-title">ForgePour</span>
+                  <img
+                    src="/logo.png"
+                    alt="Custom Concrete Curbing Logo"
+                    style={{ height: '48px', width: 'auto' }}
+                  />
                 </div>
               </a>
             </Link>
@@ -207,7 +205,7 @@ const Navigation = (props) => {
               </a>
             </div>
             <div className="navigation-mobile-footer">
-              <a href="tel:1234567890">
+              <a href="tel:6026959923">
                 <div className="navigation-mobile-phone">
                   <svg
                     width="24"
@@ -226,7 +224,7 @@ const Navigation = (props) => {
                   </svg>
                   <span>
                     {' '}
-                    (123) 456-7890
+                    (602) 695-9923
                     <span
                       dangerouslySetInnerHTML={{
                         __html: ' ',

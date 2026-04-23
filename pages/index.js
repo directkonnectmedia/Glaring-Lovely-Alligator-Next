@@ -539,7 +539,7 @@ const Home = (props) => {
                 </div>
               </div>
             </div>
-            <div className="contact-form-col">
+            <div id="quote" className="contact-form-col">
               <form
                 action="/submit"
                 method="POST"
