@@ -198,64 +198,74 @@ const Home = (props) => {
             </p>
           </div>
           <div className="gallery-grid">
-            <div className="gallery-item">
-              <img
-                alt="Backyard perimeter curbing defining a patio yard"
-                src="/images/gallery/gallery-1.jpg"
-                className="gallery-img"
-              />
-              <div className="gallery-overlay">
-                <span className="gallery-caption">
-                  Backyard Perimeter Curbing
-                </span>
+            <div className="gallery-card">
+              <div className="gallery-item">
+                <img
+                  alt="Backyard perimeter curbing defining a patio yard"
+                  src="/images/gallery/gallery-1.jpg"
+                  className="gallery-img"
+                />
+                <div className="gallery-overlay">
+                  <span className="gallery-caption">
+                    Backyard Perimeter Curbing
+                  </span>
+                </div>
               </div>
             </div>
-            <div className="gallery-item">
-              <img
-                alt="Curved planter bed curbing along a block wall"
-                src="/images/gallery/gallery-2.jpg"
-                className="gallery-img"
-              />
-              <div className="gallery-overlay">
-                <span className="gallery-caption">
-                  Planter Bed Curbing
-                </span>
+            <div className="gallery-card">
+              <div className="gallery-item">
+                <img
+                  alt="Curved planter bed curbing along a block wall"
+                  src="/images/gallery/gallery-2.jpg"
+                  className="gallery-img"
+                />
+                <div className="gallery-overlay">
+                  <span className="gallery-caption">
+                    Planter Bed Curbing
+                  </span>
+                </div>
               </div>
             </div>
-            <div className="gallery-item">
-              <img
-                alt="Driveway border curbing with desert plants"
-                src="/images/gallery/gallery-3.jpg"
-                className="gallery-img"
-              />
-              <div className="gallery-overlay">
-                <span className="gallery-caption">
-                  Driveway Border Curbing
-                </span>
+            <div className="gallery-card">
+              <div className="gallery-item">
+                <img
+                  alt="Driveway border curbing with desert plants"
+                  src="/images/gallery/gallery-3.jpg"
+                  className="gallery-img"
+                />
+                <div className="gallery-overlay">
+                  <span className="gallery-caption">
+                    Driveway Border Curbing
+                  </span>
+                </div>
               </div>
             </div>
-            <div className="gallery-item">
-              <img
-                alt="Curved flower bed curbing between grass and landscape"
-                src="/images/gallery/gallery-4.jpg"
-                className="gallery-img"
-              />
-              <div className="gallery-overlay">
-                <span className="gallery-caption">
-                  Curved Flower Bed Edging
-                </span>
+            <div className="gallery-card">
+              <div className="gallery-item">
+                <img
+                  alt="Curved flower bed curbing between grass and landscape"
+                  src="/images/gallery/gallery-4.jpg"
+                  className="gallery-img"
+                />
+                <div className="gallery-overlay">
+                  <span className="gallery-caption">
+                    Curved Flower Bed Edging
+                  </span>
+                </div>
               </div>
             </div>
-            <div className="gallery-item">
-              <img
-                alt="Long property border curbing along desert yard"
-                src="/images/gallery/gallery-5.jpg"
-                className="gallery-img"
-              />
-              <div className="gallery-overlay">
-                <span className="gallery-caption">
-                  Desert Yard Curbing
-                </span>
+            <div className="gallery-card">
+              <div className="gallery-item">
+                <img
+                  alt="Long property border curbing along desert yard"
+                  src="/images/gallery/gallery-5.jpg"
+                  className="gallery-img"
+                />
+                <div className="gallery-overlay">
+                  <span className="gallery-caption">
+                    Desert Yard Curbing
+                  </span>
+                </div>
               </div>
             </div>
           </div>
