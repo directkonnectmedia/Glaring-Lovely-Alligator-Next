@@ -1483,6 +1483,7 @@
   aspect-ratio: 4 / 3;
   transform: translate(16px, 16px);
   border: 3px solid var(--color-accent);
+  border-radius: var(--border-radius-xl);
   opacity: 0.6;
   z-index: 0;
   pointer-events: none;
@@ -1491,11 +1492,12 @@
 .gallery-card .gallery-item {
   position: relative;
   z-index: 1;
+  border-radius: var(--border-radius-xl);
 }
 
 .gallery-description {
   margin-top: var(--spacing-xl);
-  padding: 0 2px;
+  padding: var(--spacing-lg) var(--spacing-xl);
   color: var(--color-on-surface);
   font-size: var(--font-size-lg);
   font-family: var(--font-family-heading);
@@ -1505,6 +1507,9 @@
   letter-spacing: var(--letter-spacing-body);
   position: relative;
   z-index: 1;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius-lg);
+  background: var(--color-surface);
 }
 
 .gallery-nav {

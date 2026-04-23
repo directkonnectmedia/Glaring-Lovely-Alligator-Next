@@ -5,8 +5,7 @@ const SERVICES = [
   { id: 'driveway-border', label: 'Driveway Border', icon: '🚗' },
   { id: 'walkway', label: 'Walkway Edging', icon: '🚶' },
   { id: 'tree-ring', label: 'Tree Ring Curbing', icon: '🌳' },
-  { id: 'mow-strip', label: 'Mow Strip', icon: '🌱' },
-  { id: 'stamped', label: 'Stamped / Decorative', icon: '🎨' },
+  { id: 'custom', label: 'Custom Job', icon: '✍️', isCustom: true },
 ]
 
 const SIZE_OPTIONS = [
@@ -95,9 +94,11 @@ const QuoteWizard = () => {
       return
     }
     if (step === 2) {
-      const missing = selectedServices.some(
-        (s) => !details[s.id]?.size || !details[s.id]?.style
-      )
+      const missing = selectedServices.some((s) => {
+        const d = details[s.id] || {}
+        if (s.isCustom) return !d.notes || !d.notes.trim()
+        return !d.size || !d.style
+      })
       if (missing) {
         triggerShake()
         return
@@ -266,6 +267,7 @@ const QuoteWizard = () => {
             </h3>
             <p className="quote-wizard__hint">
               Size and style are required per service. Notes are optional.
+              Custom jobs just need a description.
             </p>
             <div className="quote-wizard__service-blocks">
               {selectedServices.map((svc, idx) => {
@@ -280,57 +282,79 @@ const QuoteWizard = () => {
                         {svc.icon} {svc.label}
                       </h4>
                     </div>
-                    <div className="quote-wizard__field-group">
-                      <label className="quote-wizard__label">
-                        Approx. linear feet
-                      </label>
-                      <div className="quote-wizard__grid quote-wizard__grid--2">
-                        {SIZE_OPTIONS.map((opt) => (
-                          <button
-                            key={opt}
-                            type="button"
-                            onClick={() => updateDetail(svc.id, 'size', opt)}
-                            className={`quote-wizard__pill ${
-                              d.size === opt ? 'is-selected' : ''
-                            }`}
-                          >
-                            {opt}
-                          </button>
-                        ))}
+                    {svc.isCustom ? (
+                      <div className="quote-wizard__field-group">
+                        <label className="quote-wizard__label">
+                          Describe your job
+                        </label>
+                        <textarea
+                          className="quote-wizard__textarea"
+                          placeholder="Tell us what you have in mind — location, approximate size, shape, finish, anything existing we'd remove, and any photos you can send later…"
+                          value={d.notes || ''}
+                          onChange={(e) =>
+                            updateDetail(svc.id, 'notes', e.target.value)
+                          }
+                        />
                       </div>
-                    </div>
-                    <div className="quote-wizard__field-group">
-                      <label className="quote-wizard__label">
-                        Curbing style
-                      </label>
-                      <div className="quote-wizard__grid quote-wizard__grid--2">
-                        {STYLE_OPTIONS.map((opt) => (
-                          <button
-                            key={opt}
-                            type="button"
-                            onClick={() => updateDetail(svc.id, 'style', opt)}
-                            className={`quote-wizard__pill ${
-                              d.style === opt ? 'is-selected' : ''
-                            }`}
-                          >
-                            {opt}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="quote-wizard__field-group">
-                      <label className="quote-wizard__label">
-                        Any details about your yard (optional)
-                      </label>
-                      <textarea
-                        className="quote-wizard__textarea"
-                        placeholder="Tight corners, slope, existing edging to remove, color preference…"
-                        value={d.notes || ''}
-                        onChange={(e) =>
-                          updateDetail(svc.id, 'notes', e.target.value)
-                        }
-                      />
-                    </div>
+                    ) : (
+                      <>
+                        <div className="quote-wizard__field-group">
+                          <label className="quote-wizard__label">
+                            Approx. linear feet
+                          </label>
+                          <div className="quote-wizard__grid quote-wizard__grid--2">
+                            {SIZE_OPTIONS.map((opt) => (
+                              <button
+                                key={opt}
+                                type="button"
+                                onClick={() =>
+                                  updateDetail(svc.id, 'size', opt)
+                                }
+                                className={`quote-wizard__pill ${
+                                  d.size === opt ? 'is-selected' : ''
+                                }`}
+                              >
+                                {opt}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="quote-wizard__field-group">
+                          <label className="quote-wizard__label">
+                            Curbing style
+                          </label>
+                          <div className="quote-wizard__grid quote-wizard__grid--2">
+                            {STYLE_OPTIONS.map((opt) => (
+                              <button
+                                key={opt}
+                                type="button"
+                                onClick={() =>
+                                  updateDetail(svc.id, 'style', opt)
+                                }
+                                className={`quote-wizard__pill ${
+                                  d.style === opt ? 'is-selected' : ''
+                                }`}
+                              >
+                                {opt}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="quote-wizard__field-group">
+                          <label className="quote-wizard__label">
+                            Any details about your yard (optional)
+                          </label>
+                          <textarea
+                            className="quote-wizard__textarea"
+                            placeholder="Tight corners, slope, existing edging to remove, color preference…"
+                            value={d.notes || ''}
+                            onChange={(e) =>
+                              updateDetail(svc.id, 'notes', e.target.value)
+                            }
+                          />
+                        </div>
+                      </>
+                    )}
                   </div>
                 )
               })}
