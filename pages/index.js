@@ -197,7 +197,52 @@ const Home = (props) => {
               Custom concrete curbing, shaped on site for Arizona yards.
             </p>
           </div>
-          <div className="gallery-grid">
+          <div className="gallery-carousel">
+            <button
+              id="galleryPrev"
+              aria-label="Previous photo"
+              className="gallery-nav gallery-nav-prev"
+              type="button"
+            >
+              <svg
+                width="28"
+                xmlns="http://www.w3.org/2000/svg"
+                height="28"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="m15 18l-6-6l6-6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></path>
+              </svg>
+            </button>
+            <button
+              id="galleryNext"
+              aria-label="Next photo"
+              className="gallery-nav gallery-nav-next"
+              type="button"
+            >
+              <svg
+                width="28"
+                xmlns="http://www.w3.org/2000/svg"
+                height="28"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="m9 6l6 6l-6 6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></path>
+              </svg>
+            </button>
+            <div id="galleryTrack" className="gallery-track">
             <div className="gallery-card">
               <div className="gallery-item">
                 <img
@@ -283,6 +328,26 @@ const Home = (props) => {
                 Long, continuous edge along a desert-landscaped yard.
               </p>
             </div>
+            </div>
+            <Script
+              html={`<script defer data-name="gallery-carousel">
+(function(){
+  const track = document.getElementById("galleryTrack");
+  const prev = document.getElementById("galleryPrev");
+  const next = document.getElementById("galleryNext");
+  if (!track || !prev || !next) return;
+  function step(){
+    const card = track.querySelector(".gallery-card");
+    if (!card) return 300;
+    const styles = getComputedStyle(track);
+    const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
+    return card.offsetWidth + gap;
+  }
+  prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
+  next.addEventListener("click", () => track.scrollBy({ left: step(), behavior: "smooth" }));
+})();
+</script>`}
+            ></Script>
           </div>
           <div className="gallery-footer">
             <a href="#contact">
