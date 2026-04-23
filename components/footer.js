@@ -15,13 +15,13 @@ const Footer = (props) => {
                   <img
                     src="/logo.png"
                     alt="Custom Concrete Curbing Logo"
-                    style={{ height: '72px', width: 'auto' }}
+                    style={{ height: '140px', width: 'auto', display: 'block' }}
                   />
                 </div>
                 <p className="footer-description">
-                  Arizona&apos;s premier choice for residential and commercial
-                  concrete solutions. Built for durability, poured with
-                  precision, and engineered to last a lifetime.
+                  Owner-operated custom concrete curbing for Arizona homeowners.
+                  Clean lines, lasting edges, and a personal touch on every
+                  yard we pour.
                 </p>
                 <div className="footer-socials">
                   <a href="#">
@@ -220,8 +220,7 @@ const Footer = (props) => {
                 <p className="footer-legal">
                   <span>
                     {' '}
-                    &amp;copy; 2024 ForgePour Concrete Contractors. All Rights
-                    Reserved.
+                    &copy; 2026 Custom Concrete Curbing. All Rights Reserved.
                     <span
                       dangerouslySetInnerHTML={{
                         __html: ' ',

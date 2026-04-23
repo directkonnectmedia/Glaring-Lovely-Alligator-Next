@@ -12,15 +12,18 @@ const Home = (props) => {
     <>
       <div className="home-container1">
         <Head>
-          <title>Glaring Lovely Alligator</title>
-          <meta property="og:title" content="Glaring Lovely Alligator" />
-          <link
-            rel="canonical"
-            href="https://glaring-lovely-alligator-suj5pz.teleporthq.site/"
+          <title>Custom Concrete Curbing — Residential, Arizona</title>
+          <meta
+            name="description"
+            content="Owner-operated custom concrete curbing for Arizona homes. Flower bed borders, driveway edges, walkway curbing, and more — poured on site."
           />
           <meta
-            property="og:url"
-            content="https://glaring-lovely-alligator-suj5pz.teleporthq.site/"
+            property="og:title"
+            content="Custom Concrete Curbing — Residential, Arizona"
+          />
+          <meta
+            property="og:description"
+            content="Owner-operated custom concrete curbing for Arizona homes. Flower bed borders, driveway edges, walkway curbing, and more — poured on site."
           />
         </Head>
         <Navigation></Navigation>
@@ -60,8 +63,7 @@ const Home = (props) => {
               </span>
             </h1>
             <p className="home-hero-subtitle hero-subtitle">
-              Arizona&apos;s Trusted Residential &amp; Commercial Concrete
-              Experts
+              Custom Concrete Curbing for Arizona Homes — Owner Operated.
             </p>
             <div className="hero-actions">
               <a href="#contact">
@@ -88,12 +90,13 @@ const Home = (props) => {
               <div className="about-text-col">
                 <h2 className="section-title">About Us</h2>
                 <p className="about-intro section-content">
-                  ForgePour combines industrial-grade durability with
-                  residential-focused craftsmanship. With over a decade of local
-                  experience, we are Arizona&apos;s premier licensed and insured
-                  concrete specialists. From complex commercial foundations to
-                  decorative residential patios, our team delivers structural
-                  integrity that stands the test of time.
+                  Hi, I&apos;m the owner — and I pour every job myself. I
+                  specialize in one thing: custom concrete curbing for
+                  Arizona homes. Clean borders around flower beds, trees,
+                  walkways, and driveways, shaped on site to fit your yard.
+                  No subcontractors, no commercial crews — just careful,
+                  hands-on work from someone who takes pride in the edges
+                  around your home.
                 </p>
                 <div className="about-badges">
                   <div className="badge-item">
@@ -169,7 +172,7 @@ const Home = (props) => {
                       </svg>
                     </div>
                     <span className="badge-label">
-                      Residential &amp; Commercial
+                      Residential Only
                     </span>
                   </div>
                 </div>
@@ -177,7 +180,7 @@ const Home = (props) => {
               <div className="about-image-col">
                 <div className="about-image-wrapper">
                   <img
-                    alt="ForgePour crew working on site"
+                    alt="Owner pouring custom concrete curbing on site"
                     src="https://images.pexels.com/photos/37121407/pexels-photo-37121407.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="about-img"
                   />
@@ -191,73 +194,73 @@ const Home = (props) => {
           <div className="gallery-header">
             <h2 className="section-title">Our Work</h2>
             <p className="section-subtitle">
-              Crafting the foundations of Arizona&apos;s landscape.
+              Custom concrete curbing, shaped on site for Arizona yards.
             </p>
           </div>
           <div className="gallery-grid">
             <div className="gallery-item">
               <img
-                alt="Custom residential driveway"
+                alt="Curbing around a driveway"
                 src="https://images.pexels.com/photos/33405139/pexels-photo-33405139.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                 className="gallery-img"
               />
               <div className="gallery-overlay">
                 <span className="gallery-caption">
-                  Custom Residential Driveway
+                  Driveway Border Curbing
                 </span>
               </div>
             </div>
             <div className="gallery-item">
               <img
-                alt="Commercial foundation pour"
+                alt="Flower bed curbing"
                 src="https://images.pexels.com/photos/37121405/pexels-photo-37121405.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                 className="gallery-img"
               />
               <div className="gallery-overlay">
-                <span className="gallery-caption">Commercial Foundation</span>
+                <span className="gallery-caption">Flower Bed Curbing</span>
               </div>
             </div>
             <div className="gallery-item">
               <img
-                alt="Sleek pool deck finishing"
+                alt="Walkway curbing"
                 src="https://images.pexels.com/photos/37121398/pexels-photo-37121398.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                 className="gallery-img"
               />
               <div className="gallery-overlay">
-                <span className="gallery-caption">Modern Pool Deck</span>
+                <span className="gallery-caption">Walkway Edging</span>
               </div>
             </div>
             <div className="gallery-item">
               <img
-                alt="Industrial warehouse floor"
+                alt="Tree ring curbing"
                 src="https://images.pexels.com/photos/37121400/pexels-photo-37121400.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                 className="gallery-img"
               />
               <div className="gallery-overlay">
-                <span className="gallery-caption">Industrial Flooring</span>
+                <span className="gallery-caption">Tree Ring Curbing</span>
               </div>
             </div>
             <div className="gallery-item">
               <img
-                alt="Stamped concrete patio"
+                alt="Stamped decorative curbing"
                 src="https://images.pexels.com/photos/37121406/pexels-photo-37121406.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                 className="gallery-img"
               />
               <div className="gallery-overlay">
                 <span className="gallery-caption">
-                  Stamped Decorative Patio
+                  Stamped Decorative Curbing
                 </span>
               </div>
             </div>
             <div className="gallery-item">
               <img
-                alt="Reinforced concrete retaining wall"
+                alt="Mow strip curbing along grass edge"
                 src="https://images.pexels.com/photos/19408681/pexels-photo-19408681.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                 className="gallery-img"
               />
               <div className="gallery-overlay">
                 <span className="gallery-caption">
-                  Reinforced Retaining Walls
+                  Mow Strip Curbing
                 </span>
               </div>
             </div>
@@ -275,7 +278,7 @@ const Home = (props) => {
             <div className="process-header">
               <h2 className="section-title">Poured with Precision</h2>
               <p className="section-subtitle">
-                Our streamlined industrial process ensures perfection.
+                A simple, hands-on process — from your driveway to the final cure.
               </p>
             </div>
             <div className="process-steps">
@@ -447,8 +450,9 @@ const Home = (props) => {
               <div className="info-content">
                 <h2 className="section-title">Get a Quote</h2>
                 <p className="section-content info-desc">
-                  Ready to start your next project? Contact Arizona&apos;s
-                  concrete experts today for a free, no-obligation estimate.
+                  Ready to frame your yard with clean, lasting curbing? Reach
+                  out for a free, no-obligation quote on your residential
+                  project.
                 </p>
                 <div className="contact-methods">
                   <a href="tel:6025550199">
@@ -597,10 +601,13 @@ const Home = (props) => {
                       <option value="true" disabled="true" selected="true">
                         Select an option
                       </option>
-                      <option value="driveway">Driveway</option>
-                      <option value="patio">Patio / Pool Deck</option>
-                      <option value="commercial">Commercial Foundation</option>
-                      <option value="other">Other / Repairs</option>
+                      <option value="flower-bed">Flower Bed Curbing</option>
+                      <option value="driveway-border">Driveway Border Curbing</option>
+                      <option value="walkway">Walkway Edging</option>
+                      <option value="tree-ring">Tree Ring Curbing</option>
+                      <option value="mow-strip">Mow Strip Curbing</option>
+                      <option value="stamped">Stamped / Decorative Curbing</option>
+                      <option value="other">Other Custom Curbing</option>
                     </select>
                   </div>
                 </div>
@@ -611,7 +618,7 @@ const Home = (props) => {
                     name="textarea"
                     required="true"
                     minlength="10"
-                    placeholder="Tell us about your project dimensions and requirements..."
+                    placeholder="Approximate linear feet, curbing style, and any details about your yard..."
                     data-form-field-id="thq_textarea_eBhe"
                     className="form-input form-textarea"
                   ></textarea>

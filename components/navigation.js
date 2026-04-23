@@ -16,7 +16,7 @@ const Navigation = (props) => {
                   <img
                     src="/logo.png"
                     alt="Custom Concrete Curbing Logo"
-                    style={{ height: '48px', width: 'auto' }}
+                    style={{ height: '80px', width: 'auto', display: 'block' }}
                   />
                 </div>
               </a>
@@ -147,7 +147,7 @@ const Navigation = (props) => {
                   <img
                     src="/logo.png"
                     alt="Custom Concrete Curbing Logo"
-                    style={{ height: '48px', width: 'auto' }}
+                    style={{ height: '80px', width: 'auto', display: 'block' }}
                   />
                 </div>
               </a>
