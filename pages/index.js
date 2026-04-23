@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 
 import Navigation from '../components/navigation'
 import Footer from '../components/footer'
+import QuoteWizard from '../components/quote-wizard'
 
 const Home = (props) => {
   return (
@@ -499,60 +500,6 @@ const Home = (props) => {
             </div>
           </div>
         </section>
-        <section className="trust-stats">
-          <div className="stats-container">
-            <div className="stats-grid">
-              <div className="stat-card">
-                <div className="stat-value">
-                  <span>AZ #349281</span>
-                </div>
-                <div className="stat-label">
-                  <span>Licensed Contractor</span>
-                </div>
-              </div>
-              <div className="stat-card">
-                <div className="stat-value">
-                  <span>10+</span>
-                </div>
-                <div className="stat-label">
-                  <span>Years in Business</span>
-                </div>
-              </div>
-              <div className="stat-card">
-                <div className="stat-value">
-                  <span>1,200+</span>
-                </div>
-                <div className="stat-label">
-                  <span>Projects Completed</span>
-                </div>
-              </div>
-              <div className="stat-card">
-                <div className="stat-value">
-                  <span>100%</span>
-                </div>
-                <div className="stat-label">
-                  <span>Fully Insured</span>
-                </div>
-              </div>
-              <div className="stat-card">
-                <div className="stat-value">
-                  <span>A+</span>
-                </div>
-                <div className="stat-label">
-                  <span>Local Reputation</span>
-                </div>
-              </div>
-              <div className="stat-card">
-                <div className="stat-value">
-                  <span>5yr</span>
-                </div>
-                <div className="stat-label">
-                  <span>Workmanship Guarantee</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
         <section id="contact" className="contact-section">
           <div className="contact-grid">
             <div className="contact-info-col">
@@ -652,96 +599,8 @@ const Home = (props) => {
                 </div>
               </div>
             </div>
-            <div id="quote" className="contact-form-col">
-              <form
-                action="/submit"
-                method="POST"
-                data-form-id="9d7fe820-6b93-4320-bfa1-ac865d7a21dd"
-                className="quote-form"
-              >
-                <div className="form-row">
-                  <div className="form-group">
-                    <label className="form-label">Full Name</label>
-                    <input
-                      type="text"
-                      id="thq_textinput_R6-7"
-                      name="textinput"
-                      required="true"
-                      placeholder="John Doe"
-                      data-form-field-id="thq_textinput_R6-7"
-                      className="form-input"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label className="form-label">Email Address</label>
-                    <input
-                      type="email"
-                      id="thq_textinput_8pk1"
-                      name="textinput"
-                      required="true"
-                      placeholder="john@example.com"
-                      data-form-field-id="thq_textinput_8pk1"
-                      className="form-input"
-                    />
-                  </div>
-                </div>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label className="form-label">Phone Number</label>
-                    <input
-                      type="tel"
-                      id="thq_textinput_Wgd5"
-                      name="textinput"
-                      required="true"
-                      placeholder="(602) 000-0000"
-                      data-form-field-id="thq_textinput_Wgd5"
-                      className="form-input"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label className="form-label">Project Type</label>
-                    <select
-                      id="thq_select_U3Ht"
-                      name="select"
-                      required="true"
-                      data-form-field-id="thq_select_U3Ht"
-                      className="form-input"
-                    >
-                      <option value="true" disabled="true" selected="true">
-                        Select an option
-                      </option>
-                      <option value="flower-bed">Flower Bed Curbing</option>
-                      <option value="driveway-border">Driveway Border Curbing</option>
-                      <option value="walkway">Walkway Edging</option>
-                      <option value="tree-ring">Tree Ring Curbing</option>
-                      <option value="mow-strip">Mow Strip Curbing</option>
-                      <option value="stamped">Stamped / Decorative Curbing</option>
-                      <option value="other">Other Custom Curbing</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label className="form-label">Project Details</label>
-                  <textarea
-                    id="thq_textarea_eBhe"
-                    name="textarea"
-                    required="true"
-                    minlength="10"
-                    placeholder="Approximate linear feet, curbing style, and any details about your yard..."
-                    data-form-field-id="thq_textarea_eBhe"
-                    className="form-input form-textarea"
-                  ></textarea>
-                </div>
-                <button
-                  id="thq_button_emcj"
-                  name="button"
-                  type="submit"
-                  data-form-field-id="thq_button_emcj"
-                  className="btn-accent btn-block btn btn-lg"
-                >
-                  Get My Free Quote
-                </button>
-              </form>
+            <div className="contact-form-col">
+              <QuoteWizard />
             </div>
           </div>
         </section>

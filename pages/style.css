@@ -2055,6 +2055,624 @@
 }
 
 /* =======================================================================
+   Quote Wizard — multi-step quote form
+   ======================================================================= */
+
+.quote-wizard {
+  position: relative;
+  width: 100%;
+}
+
+.quote-wizard__progress {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: clamp(1.75rem, 2.5vw, 2.5rem);
+}
+
+.quote-wizard__step-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.quote-wizard__step-circle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--color-on-surface) 10%, transparent);
+  color: color-mix(in oklab, var(--color-on-surface) 55%, transparent);
+  font-family: var(--font-family-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+.quote-wizard__step-number,
+.quote-wizard__step-check {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.25s ease;
+}
+
+.quote-wizard__step-check {
+  opacity: 0;
+  color: #fff;
+}
+
+.quote-wizard__step-indicator.is-active .quote-wizard__step-circle {
+  background: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(196, 85, 24, 0.32);
+  transform: scale(1.05);
+}
+
+.quote-wizard__step-indicator.is-complete .quote-wizard__step-circle {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(45, 55, 72, 0.25);
+}
+
+.quote-wizard__step-indicator.is-complete .quote-wizard__step-number {
+  opacity: 0;
+}
+
+.quote-wizard__step-indicator.is-complete .quote-wizard__step-check {
+  opacity: 1;
+}
+
+.quote-wizard__step-label {
+  color: color-mix(in oklab, var(--color-on-surface) 55%, transparent);
+  font-family: var(--font-family-heading);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.quote-wizard__step-indicator.is-active .quote-wizard__step-label,
+.quote-wizard__step-indicator.is-complete .quote-wizard__step-label {
+  color: var(--color-on-surface);
+}
+
+.quote-wizard__connector {
+  flex: 1 1 auto;
+  height: 2px;
+  margin-top: 19px;
+  background: color-mix(in oklab, var(--color-on-surface) 10%, transparent);
+  border-radius: 2px;
+  min-width: 16px;
+  transition: background-color 0.35s ease;
+}
+
+.quote-wizard__connector.is-complete {
+  background: var(--color-primary);
+}
+
+.quote-wizard__panels {
+  position: relative;
+  min-height: 320px;
+}
+
+.quote-wizard__step {
+  display: none;
+  animation: quoteWizardFadeIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.quote-wizard__step.is-active {
+  display: block;
+}
+
+@keyframes quoteWizardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes quoteWizardShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+@keyframes quoteWizardPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.quote-wizard__heading {
+  color: var(--color-primary);
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 1.1rem + 0.8vw, 1.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 1rem;
+}
+
+.quote-wizard__heading.is-shake {
+  animation: quoteWizardShake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+.quote-wizard__hint {
+  margin: -0.4rem 0 1.4rem;
+  color: color-mix(in oklab, var(--color-on-surface) 70%, transparent);
+  font-size: 0.95rem;
+  font-family: var(--font-family-body);
+  line-height: 1.5;
+}
+
+.quote-wizard__field-group {
+  margin-bottom: 1.25rem;
+}
+
+.quote-wizard__label {
+  display: block;
+  color: var(--color-on-surface);
+  font-family: var(--font-family-heading);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.quote-wizard__grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.quote-wizard__grid--services {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.quote-wizard__grid--2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.quote-wizard__choice {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.25rem 0.75rem;
+  background: #fff;
+  border: 2px solid var(--color-border);
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: var(--font-family-body);
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.quote-wizard__choice:hover {
+  border-color: color-mix(in oklab, var(--color-accent) 60%, var(--color-border));
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.quote-wizard__choice.is-selected {
+  border-color: var(--color-accent);
+  background: linear-gradient(135deg, #fff, rgba(196, 85, 24, 0.08));
+  box-shadow: 0 14px 30px rgba(196, 85, 24, 0.18);
+}
+
+.quote-wizard__choice-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.quote-wizard__choice-label {
+  color: var(--color-primary);
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.quote-wizard__choice-check {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s cubic-bezier(0.22, 1.4, 0.36, 1);
+  pointer-events: none;
+  box-shadow: 0 4px 10px rgba(196, 85, 24, 0.35);
+}
+
+.quote-wizard__choice.is-selected .quote-wizard__choice-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.quote-wizard__pill {
+  padding: 0.9rem 1rem;
+  background: #fff;
+  border: 2px solid var(--color-border);
+  border-radius: 14px;
+  color: var(--color-primary);
+  font-family: var(--font-family-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.quote-wizard__pill:hover {
+  border-color: color-mix(in oklab, var(--color-accent) 55%, var(--color-border));
+}
+
+.quote-wizard__pill.is-selected {
+  border-color: var(--color-accent);
+  background: linear-gradient(135deg, #fff, rgba(196, 85, 24, 0.08));
+  box-shadow: 0 8px 18px rgba(196, 85, 24, 0.14);
+}
+
+.quote-wizard__textarea,
+.quote-wizard__input {
+  width: 100%;
+  background: #fff;
+  border: 2px solid var(--color-border);
+  border-radius: 14px;
+  color: var(--color-on-surface);
+  font-family: var(--font-family-body);
+  font-size: 0.95rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.quote-wizard__textarea {
+  min-height: 90px;
+  padding: 0.9rem 1rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.quote-wizard__input {
+  padding: 1rem 1.1rem;
+}
+
+.quote-wizard__textarea::placeholder,
+.quote-wizard__input::placeholder {
+  color: color-mix(in oklab, var(--color-on-surface) 45%, transparent);
+}
+
+.quote-wizard__textarea:focus,
+.quote-wizard__input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-accent) 18%, transparent);
+}
+
+.quote-wizard__input.has-error {
+  border-color: #dc2626;
+  background: rgba(220, 38, 38, 0.04);
+}
+
+.quote-wizard__input.has-error:focus {
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.18);
+}
+
+.quote-wizard__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.quote-wizard__service-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.quote-wizard__service-block {
+  padding: 1.25rem 1.25rem 1.4rem;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.quote-wizard__service-block--timeline {
+  background: linear-gradient(135deg, #fff, rgba(196, 85, 24, 0.04));
+}
+
+.quote-wizard__service-block-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+}
+
+.quote-wizard__service-block-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-accent) 0%, #e07a3c 100%);
+  color: #fff;
+  font-family: var(--font-family-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(196, 85, 24, 0.28);
+}
+
+.quote-wizard__service-block-title {
+  color: var(--color-primary);
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+
+.quote-wizard__timeline-summary {
+  margin: 0 0 1.1rem;
+  padding: 0.65rem 0.9rem;
+  background: color-mix(in oklab, var(--color-accent) 8%, transparent);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 8px;
+  color: var(--color-on-surface);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  font-family: var(--font-family-body);
+}
+
+.quote-wizard__timeline-summary strong {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.quote-wizard__selection-count {
+  color: color-mix(in oklab, var(--color-on-surface) 70%, transparent);
+  font-family: var(--font-family-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+}
+
+.quote-wizard__actions {
+  display: flex;
+  gap: 0.85rem;
+  margin-top: 1.75rem;
+  align-items: center;
+}
+
+.quote-wizard__step[data-panel="1"] .quote-wizard__actions {
+  justify-content: space-between;
+}
+
+.quote-wizard__btn {
+  padding: 0.9rem 1.75rem;
+  border-radius: 9999px;
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    filter 0.25s ease;
+}
+
+.quote-wizard__btn--back {
+  background: transparent;
+  border: 2px solid var(--color-border);
+  color: color-mix(in oklab, var(--color-on-surface) 70%, transparent);
+}
+
+.quote-wizard__btn--back:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.quote-wizard__btn--primary {
+  flex: 1 1 auto;
+  background: linear-gradient(90deg, var(--color-accent) 0%, #e07a3c 100%);
+  border: 2px solid transparent;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(196, 85, 24, 0.25);
+}
+
+.quote-wizard__btn--primary:hover {
+  transform: scale(1.02);
+  box-shadow: 0 16px 32px rgba(196, 85, 24, 0.35);
+  filter: brightness(1.05);
+}
+
+.quote-wizard__btn--primary[disabled],
+.quote-wizard__btn--primary[disabled]:hover {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 4px 10px rgba(196, 85, 24, 0.12);
+  filter: grayscale(0.2);
+}
+
+.quote-wizard__step[data-panel="1"] .quote-wizard__btn--primary {
+  flex: 0 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.quote-wizard__success {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.quote-wizard__success-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-accent) 0%, #e07a3c 100%);
+  box-shadow: 0 20px 40px rgba(196, 85, 24, 0.32);
+  animation: quoteWizardPop 0.55s cubic-bezier(0.22, 1.4, 0.36, 1) both;
+}
+
+.quote-wizard__success-heading {
+  color: var(--color-primary);
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
+  line-height: 1.1;
+  margin: 0 0 0.75rem;
+}
+
+.quote-wizard__success-body {
+  color: color-mix(in oklab, var(--color-on-surface) 75%, transparent);
+  font-family: var(--font-family-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 32rem;
+  margin: 0 auto 1.5rem;
+}
+
+.quote-wizard__success-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.75rem;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 9999px;
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.quote-wizard__success-cta:hover {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(196, 85, 24, 0.3);
+}
+
+@media (max-width: 768px) {
+  .quote-wizard__step-label {
+    display: none;
+  }
+  .quote-wizard__step-circle {
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
+  }
+  .quote-wizard__connector {
+    margin-top: 16px;
+  }
+  .quote-wizard__grid--services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .quote-wizard__grid--2 {
+    grid-template-columns: 1fr;
+  }
+  .quote-wizard__step[data-panel="1"] .quote-wizard__actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 0.6rem;
+  }
+  .quote-wizard__step[data-panel="1"] .quote-wizard__btn--primary {
+    width: 100%;
+  }
+  .quote-wizard__selection-count {
+    text-align: center;
+  }
+  .quote-wizard__service-block {
+    padding: 1rem 0.9rem 1.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quote-wizard__step,
+  .quote-wizard__heading,
+  .quote-wizard__choice,
+  .quote-wizard__pill,
+  .quote-wizard__btn,
+  .quote-wizard__step-circle,
+  .quote-wizard__success-icon,
+  .quote-wizard__success-cta {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* =======================================================================
    Gallery page — /gallery
    ======================================================================= */
 
