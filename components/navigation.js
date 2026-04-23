@@ -71,11 +71,13 @@ const Navigation = (props) => {
                       <span>Our Work</span>
                     </div>
                   </a>
-                  <a href="#gallery">
-                    <div className="navigation-dropdown-link">
-                      <span>Gallery</span>
-                    </div>
-                  </a>
+                  <Link href="/gallery">
+                    <a>
+                      <div className="navigation-dropdown-link">
+                        <span>Gallery</span>
+                      </div>
+                    </a>
+                  </Link>
                   <a href="#services">
                     <div className="navigation-dropdown-link">
                       <span>Services</span>
@@ -193,11 +195,13 @@ const Navigation = (props) => {
                   <span>Our Work</span>
                 </div>
               </a>
-              <a href="#gallery">
-                <div className="navigation-mobile-link">
-                  <span>Gallery</span>
-                </div>
-              </a>
+              <Link href="/gallery">
+                <a>
+                  <div className="navigation-mobile-link">
+                    <span>Gallery</span>
+                  </div>
+                </a>
+              </Link>
               <a href="#contact">
                 <div className="navigation-mobile-link">
                   <span>Contact Us</span>

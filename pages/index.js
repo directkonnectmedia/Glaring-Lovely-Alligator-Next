@@ -29,15 +29,23 @@ const Home = (props) => {
         <Navigation></Navigation>
         <section id="home" className="hero-cinematic">
           <div className="hero-video-wrapper">
-            <video
-              src="https://videos.pexels.com/video-files/34289834/14526889_640_360_25fps.mp4"
-              loop="true"
-              muted="true"
-              poster="https://images.pexels.com/videos/34289834/pictures/preview-0.jpg"
-              autoPlay="true"
-              playsInline="true"
-              className="hero-video"
-            ></video>
+            <div className="hero-slideshow">
+              <div
+                className="hero-slide hero-slide-1"
+                style={{ backgroundImage: "url('/images/photos/photo-01.jpg')" }}
+                aria-hidden="true"
+              ></div>
+              <div
+                className="hero-slide hero-slide-2"
+                style={{ backgroundImage: "url('/images/photos/photo-02.jpg')" }}
+                aria-hidden="true"
+              ></div>
+              <div
+                className="hero-slide hero-slide-3"
+                style={{ backgroundImage: "url('/images/photos/photo-03.jpg')" }}
+                aria-hidden="true"
+              ></div>
+            </div>
             <div className="hero-overlay"></div>
           </div>
           <div className="hero-content">
@@ -180,8 +188,8 @@ const Home = (props) => {
               <div className="about-image-col">
                 <div className="about-image-wrapper">
                   <img
-                    alt="Owner pouring custom concrete curbing on site"
-                    src="https://images.pexels.com/photos/37121407/pexels-photo-37121407.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    alt="Owner installing custom concrete curbing on an Arizona home"
+                    src="/images/photos/photo-04.jpg"
                     className="about-img"
                   />
                   <div className="about-image-accent"></div>
@@ -246,86 +254,103 @@ const Home = (props) => {
             <div className="gallery-card">
               <div className="gallery-item">
                 <img
-                  alt="Backyard perimeter curbing defining a patio yard"
-                  src="/images/gallery/gallery-1.jpg"
+                  alt="Custom concrete curbing with flagpole border"
+                  src="/images/photos/photo-05.jpg"
                   className="gallery-img"
                 />
                 <div className="gallery-overlay">
                   <span className="gallery-caption">
-                    Backyard Perimeter Curbing
+                    Flagpole Border Curbing
                   </span>
                 </div>
               </div>
               <p className="gallery-description">
-                Clean, straight-line curbing framing a backyard patio.
+                Clean curved border framing a front-yard flagpole bed.
               </p>
             </div>
             <div className="gallery-card">
               <div className="gallery-item">
                 <img
-                  alt="Curved planter bed curbing along a block wall"
-                  src="/images/gallery/gallery-2.jpg"
+                  alt="Curbing along driveway edge in an Arizona yard"
+                  src="/images/photos/photo-06.jpg"
                   className="gallery-img"
                 />
                 <div className="gallery-overlay">
                   <span className="gallery-caption">
-                    Planter Bed Curbing
+                    Driveway Edge Curbing
                   </span>
                 </div>
               </div>
               <p className="gallery-description">
-                Curved planter cutouts running along a block wall.
+                Crisp border guiding the driveway line across a desert yard.
               </p>
             </div>
             <div className="gallery-card">
               <div className="gallery-item">
                 <img
-                  alt="Driveway border curbing with desert plants"
-                  src="/images/gallery/gallery-3.jpg"
+                  alt="Flowing curved curbing around landscape beds"
+                  src="/images/photos/photo-07.jpg"
                   className="gallery-img"
                 />
                 <div className="gallery-overlay">
                   <span className="gallery-caption">
-                    Driveway Border Curbing
+                    Curved Landscape Curbing
                   </span>
                 </div>
               </div>
               <p className="gallery-description">
-                Sharp driveway border with desert plant accents.
+                Sweeping curve dividing gravel and planting beds.
               </p>
             </div>
             <div className="gallery-card">
               <div className="gallery-item">
                 <img
-                  alt="Curved flower bed curbing between grass and landscape"
-                  src="/images/gallery/gallery-4.jpg"
+                  alt="Freshly poured concrete curbing drying in the sun"
+                  src="/images/photos/photo-08.jpg"
                   className="gallery-img"
                 />
                 <div className="gallery-overlay">
                   <span className="gallery-caption">
-                    Curved Flower Bed Edging
+                    Fresh Poured Curbing
                   </span>
                 </div>
               </div>
               <p className="gallery-description">
-                Flowing curve dividing lawn from landscape bed.
+                Freshly extruded curbing, shaped on site and setting up clean.
               </p>
             </div>
             <div className="gallery-card">
               <div className="gallery-item">
                 <img
-                  alt="Long property border curbing along desert yard"
-                  src="/images/gallery/gallery-5.jpg"
+                  alt="Front yard curbing defining landscape beds"
+                  src="/images/photos/photo-09.jpg"
                   className="gallery-img"
                 />
                 <div className="gallery-overlay">
                   <span className="gallery-caption">
-                    Desert Yard Curbing
+                    Front Yard Curbing
                   </span>
                 </div>
               </div>
               <p className="gallery-description">
-                Long, continuous edge along a desert-landscaped yard.
+                Continuous border framing the front yard landscape.
+              </p>
+            </div>
+            <div className="gallery-card">
+              <div className="gallery-item">
+                <img
+                  alt="Tree ring curbing around desert landscaping"
+                  src="/images/photos/photo-10.jpg"
+                  className="gallery-img"
+                />
+                <div className="gallery-overlay">
+                  <span className="gallery-caption">
+                    Desert Bed Curbing
+                  </span>
+                </div>
+              </div>
+              <p className="gallery-description">
+                Tight edge holding gravel and plants cleanly in place.
               </p>
             </div>
             </div>
@@ -350,7 +375,7 @@ const Home = (props) => {
             ></Script>
           </div>
           <div className="gallery-footer">
-            <a href="#contact">
+            <a href="/gallery">
               <div className="btn-accent btn btn-lg">
                 <span>View More Projects</span>
               </div>
