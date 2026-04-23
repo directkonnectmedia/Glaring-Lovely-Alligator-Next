@@ -200,8 +200,32 @@ const Home = (props) => {
           <div className="gallery-grid">
             <div className="gallery-item">
               <img
-                alt="Curbing around a driveway"
-                src="https://images.pexels.com/photos/33405139/pexels-photo-33405139.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                alt="Backyard perimeter curbing defining a patio yard"
+                src="/images/gallery/gallery-1.jpg"
+                className="gallery-img"
+              />
+              <div className="gallery-overlay">
+                <span className="gallery-caption">
+                  Backyard Perimeter Curbing
+                </span>
+              </div>
+            </div>
+            <div className="gallery-item">
+              <img
+                alt="Curved planter bed curbing along a block wall"
+                src="/images/gallery/gallery-2.jpg"
+                className="gallery-img"
+              />
+              <div className="gallery-overlay">
+                <span className="gallery-caption">
+                  Planter Bed Curbing
+                </span>
+              </div>
+            </div>
+            <div className="gallery-item">
+              <img
+                alt="Driveway border curbing with desert plants"
+                src="/images/gallery/gallery-3.jpg"
                 className="gallery-img"
               />
               <div className="gallery-overlay">
@@ -212,55 +236,25 @@ const Home = (props) => {
             </div>
             <div className="gallery-item">
               <img
-                alt="Flower bed curbing"
-                src="https://images.pexels.com/photos/37121405/pexels-photo-37121405.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                className="gallery-img"
-              />
-              <div className="gallery-overlay">
-                <span className="gallery-caption">Flower Bed Curbing</span>
-              </div>
-            </div>
-            <div className="gallery-item">
-              <img
-                alt="Walkway curbing"
-                src="https://images.pexels.com/photos/37121398/pexels-photo-37121398.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                className="gallery-img"
-              />
-              <div className="gallery-overlay">
-                <span className="gallery-caption">Walkway Edging</span>
-              </div>
-            </div>
-            <div className="gallery-item">
-              <img
-                alt="Tree ring curbing"
-                src="https://images.pexels.com/photos/37121400/pexels-photo-37121400.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                className="gallery-img"
-              />
-              <div className="gallery-overlay">
-                <span className="gallery-caption">Tree Ring Curbing</span>
-              </div>
-            </div>
-            <div className="gallery-item">
-              <img
-                alt="Stamped decorative curbing"
-                src="https://images.pexels.com/photos/37121406/pexels-photo-37121406.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                alt="Curved flower bed curbing between grass and landscape"
+                src="/images/gallery/gallery-4.jpg"
                 className="gallery-img"
               />
               <div className="gallery-overlay">
                 <span className="gallery-caption">
-                  Stamped Decorative Curbing
+                  Curved Flower Bed Edging
                 </span>
               </div>
             </div>
             <div className="gallery-item">
               <img
-                alt="Mow strip curbing along grass edge"
-                src="https://images.pexels.com/photos/19408681/pexels-photo-19408681.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                alt="Long property border curbing along desert yard"
+                src="/images/gallery/gallery-5.jpg"
                 className="gallery-img"
               />
               <div className="gallery-overlay">
                 <span className="gallery-caption">
-                  Mow Strip Curbing
+                  Desert Yard Curbing
                 </span>
               </div>
             </div>
